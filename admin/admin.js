@@ -125,7 +125,6 @@ document.getElementById("botonEliminar").addEventListener("click", function (eve
 })
 
 // mostrar productos
-
 window.addEventListener("load", () => {
     const productoEd = document.getElementById('productoEditar')
     const productoEl = document.getElementById('productoEliminar')
