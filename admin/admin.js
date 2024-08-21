@@ -126,12 +126,8 @@ document.getElementById("botonEliminar").addEventListener("click", function (eve
 
 // mostrar productos
 window.addEventListener("load", () => {
-    const productoEd = document.getElementById('productoEditar')
-    const productoEl = document.getElementById('productoEliminar')
-
-        // Limpiar opciones anteriores
-        productoEd.innerHTML = '';
-        productoEl.innerHTML = '';
+    const productoEd = document.getElementById('productoEditar');
+    const productoEl = document.getElementById('productoEliminar');
 
         
         for (let i = 0; i < productos.length; i++) {
@@ -139,22 +135,19 @@ window.addEventListener("load", () => {
             productoEl.innerHTML += `<option>${productos[i].nombre}</option>`;
         }
 
-    Object.keys(productos[0]).forEach(element => {
-        atributoEd.innerHTML += `<option>${element}</option>`
-    });
+        let mostraProductos = document.getElementById('mostrarProductos');
+        mostraProductos.innerHTML = '';
 
-    let mostraProductos = document.getElementById('mostrarProductos');
-    mostraProductos.innerHTML = '';
-    for (let i = 0; i < productos.length; i++) {
-        mostraProductos.innerHTML += `
-            <div class="contenedorProductos">
-                <img src="${productos[i].urlImagen}" alt="${productos[i].nombre}" onerror="this.src='default.jpg';">
-                <div class="informacion">
-                    <p>${productos[i].nombre}</p>
-                    <p class="precio"><span>Precio: ${productos[i].valor}$</span></p>
-                    Existencia: ${productos[i].existencia}
-                    <p></p>
-                </div>
-            </div>`;
+      // Mostrar productos
+        for (let i = 0; i < productos.length; i++) {
+            mostraProductos.innerHTML += `
+                <div class="contenedorProductos">
+                    <img src="${productos[i].urlImagen}" alt="${productos[i].nombre}" onerror="img/default.jpg">
+                    <div class="informacion">
+                        <p>${productos[i].nombre}</p>
+                        <p class="precio"><span>Precio: ${productos[i].valor}$</span></p>
+                        Existencia: ${productos[i].existencia}
+                    </div>
+                </div>`;
         }
     });
