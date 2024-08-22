@@ -9,9 +9,8 @@ function obtenerAlmacenamientoLocal(llave) {
 let productos = obtenerAlmacenamientoLocal('productos') || [];
 let mensaje = document.getElementById('mensaje')
 
-//Añadir un productos
-
-const añadirProducto = document.getElementById('productoAñadir') 
+//Añadir un producto
+const añadirProducto = document.getElementById('productoAñadir')
 const añadirValor = document.getElementById('valorAñadir')
 const añadirExistencia = document.getElementById('existenciaAñadir')
 const añadirImagen = document.getElementById('ImagenAñadir')
@@ -57,7 +56,6 @@ document.getElementById("botonAñadir").addEventListener("click", function (even
 })
 
 // Editar
-
 const productoEd = document.getElementById('productoEditar')
 const atributoEd = document.getElementById('atributoEditar')
 const nuevoAtributoEd = document.getElementById('nuevoAtributo')
@@ -95,7 +93,6 @@ document.getElementById("botonEditar").addEventListener("click", function (event
 })
 
 // Eliminar
-
 const productoE = document.getElementById('productoEliminar')
 
 document.getElementById("botonEliminar").addEventListener("click", function (event) {
@@ -126,28 +123,19 @@ document.getElementById("botonEliminar").addEventListener("click", function (eve
 
 // mostrar productos
 window.addEventListener("load", () => {
-    const productoEd = document.getElementById('productoEditar');
-    const productoEl = document.getElementById('productoEliminar');
-
-        
-        for (let i = 0; i < productos.length; i++) {
-            productoEd.innerHTML += `<option>${productos[i].nombre}</option>`;
-            productoEl.innerHTML += `<option>${productos[i].nombre}</option>`;
-        }
-
-        let mostraProductos = document.getElementById('mostrarProductos');
-        mostraProductos.innerHTML = '';
-
-      // Mostrar productos
-        for (let i = 0; i < productos.length; i++) {
-            mostraProductos.innerHTML += `
-                <div class="contenedorProductos">
-                    <img src="${productos[i].urlImagen}" alt="${productos[i].nombre}" onerror="img/default.jpg">
-                    <div class="informacion">
-                        <p>${productos[i].nombre}</p>
-                        <p class="precio"><span>Precio: ${productos[i].valor}$</span></p>
-                        Existencia: ${productos[i].existencia}
-                    </div>
-                </div>`;
-        }
+    const productoEd = document.getElementById('productoEditar')
+    const productoEl = document.getElementById('productoEliminar')
+    for (let i = 0; i < productos.length; i++) {
+        productoEd.innerHTML += `<option>${productos[i].nombre}</option>`
+        productoEl.innerHTML += `<option>${productos[i].nombre}</option>`
+    }
+    Object.keys(productos[0]).forEach(element => {
+        atributoEd.innerHTML += `<option>${element}</option>`
     });
+
+    let mostraProductos = document.getElementById('mostrarProductos')
+    mostraProductos.innerHTML = ''
+    for (let i = 0; i < productos.length; i++) {
+        mostraProductos.innerHTML += `<div class="contenedorProductos"><img src="${productos[i].urlImagen}"><div class="informacion"><p>${productos[i].nombre}</p><p class="precio"><span>Precio: ${productos[i].valor}$</span></p> Existencia: ${productos[i].existencia}<p></p></div></div>`
+    }
+})

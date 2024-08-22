@@ -100,7 +100,7 @@ function mostrarElemtrosLista() {
     productosCompra.innerHTML = ""
     valortotal = 0
     for (let i = 0; i < lista.length; i++){
-        productosCompra.innerHTML += `<div><div class="img"><button onclick=eliminar(${i}) class="botonTrash"><img src="/img/trash.png"></button><p>${lista[i].nombre}</p></div><p> $${lista[i].precio}</p></div>`
+        productosCompra.innerHTML += `<div><div class="img"><button onclick=eliminar(${i}) class="botonTrash"><img src="./img/trash.png"></button><p>${lista[i].nombre}</p></div><p> $${lista[i].precio}</p></div>`
         valortotal += parseInt(lista[i].precio)
     }
     total.innerHTML = `<p>Valor Total</p> <p><span>$${valortotal}</span></p>`
